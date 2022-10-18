@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -18,18 +19,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hola', function () {
-    echo "HOLA";
-});
+Route::get('users/', [UserController::class,'index']);
 
-Route::get('/saludo/{nombre}', function($nombre){
-    echo "Hola que tal ".$nombre;
-});
+Route::get('users/create', [UserController::class, 'create']);
 
-Route::get('suma/{num1}/{num2}/{num3?}', function($num1,$num2,$num3=0){
-    echo "Suma: ".$num1+$num2+$num3;
-})->where(['num1'=>'[0-9]+','num2'=>'[0-9]+', 'num3'=>'[0-9]+']);
+Route::get('users/{id}', [UserController::class,'show']);
 
-Route::post('suma/', function(Request $request){
+Route::post('users/', [UserController::class, 'store']);
 
-});
+
+// Route::get('/hola', function () {
+//     echo "HOLA";
+// });
+
+// Route::get('/saludo/{nombre}', function($nombre){
+//     echo "Hola que tal ".$nombre;
+// });
+
+// Route::get('suma/{num1}/{num2}/{num3?}', function($num1,$num2,$num3=0){
+//     echo "Suma: ".$num1+$num2+$num3;
+// })->where(['num1'=>'[0-9]+','num2'=>'[0-9]+', 'num3'=>'[0-9]+']);
+
+// Route::post('suma/', function(Request $request){
+
+// });
