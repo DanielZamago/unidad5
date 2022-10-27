@@ -12,12 +12,14 @@ class Reservation extends Model
     protected $fillable = [
         'type',
         'date_arrived',
-        'name',
-        'phone_number',
-        'email',
+        'client_id',
         'cost_day',
         'total',
         'date_departure',
     ];
 
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
 }

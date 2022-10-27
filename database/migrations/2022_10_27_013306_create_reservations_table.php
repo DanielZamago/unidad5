@@ -18,9 +18,10 @@ return new class extends Migration
 
             $table->String('type');
             $table->date('date_arrived');
-            $table->String('name');
-            $table->String('phone_number');
-            $table->String('email')->unique();
+            
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('id')->on('clients');
+
             $table->double('cost_day');
             $table->double('Total');
             $table->date('date_departure');
