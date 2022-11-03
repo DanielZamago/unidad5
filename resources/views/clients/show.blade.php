@@ -14,6 +14,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
+                <td>Action</td>
             </thead>
             <tbody>
                 @foreach ($clients as $client)
@@ -22,6 +23,9 @@
                     <td>{{ $client->name }}</td>
                     <td>{{ $client->email }}</td>
                     <td>{{ $client->phone_number }}</td>
+                    <td>
+                        <a href="{{ url(('/clients/edit/'.$client->id)) }}">Edit</a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

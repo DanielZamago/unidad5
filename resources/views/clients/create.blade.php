@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <form method="POST" action="http://127.0.0.1:8000/clients">
+    <form method="POST" action="{{ url('clients/') }}">
 
         @csrf
         <label for="">Name:</label>
