@@ -28,6 +28,8 @@ class ClientController extends Controller
     public function create()
     {
         //
+        // echo "Hola esta es la vista create";
+        return view('clients.create');
     }
 
     /**
@@ -39,6 +41,18 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         //
+        // $client = new Client();
+
+        // $client->name = $request->name;
+        // $client->email = $request->email;
+        // $client->phone_number = $request->phone_number;
+
+        // $client = new Client($request->all());
+        $client = Client::create($request->all());
+
+        $client->save();
+    
+        echo $client;
     }
 
     /**
